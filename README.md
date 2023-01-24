@@ -1,5 +1,7 @@
 <h1 align="center">🎨 Tmux Power</h1>
 
+### \*\*forked from [wfxr/tmux-power](https://github.com/wfxr/tmux-power)
+
 <p align="center">
   <em>Yet another powerline theme for tmux.</em>
 </p>
@@ -33,12 +35,12 @@ Clone the repo somewhere and source it in `.tmux.conf`:
 run-shell "/path/to/tmux-power.tmux"
 ```
 
-*NOTE: Options should be set before sourcing.*
+_NOTE: Options should be set before sourcing._
 
 **Install using [TPM](https://github.com/tmux-plugins/tpm)**
 
 ```tmux
-set -g @plugin 'wfxr/tmux-power'
+set -g @plugin 'pxtchphrxse/tmux-power'
 ```
 
 ### 🎨 Themes
@@ -91,7 +93,7 @@ set -g @tmux_power_theme 'redwine'
 set -g @tmux_power_theme 'sky'
 ```
 
-### ⚙  Customizing
+### ⚙ Customizing
 
 > **Upgrading from v1?** The section-based model replaces the old `show_*` / `*_icon` / `use_bold` options.
 > See the [migration guide](https://github.com/wfxr/tmux-power/pull/66#issuecomment-4108589864) for a complete mapping from old options to new ones.
@@ -114,7 +116,7 @@ The defaults are:
 ```tmux
 set -g @tmux_power_right_arrow_icon ''
 set -g @tmux_power_left_arrow_icon  ''
-set -g @tmux_power_left_a  ' #{USER}@#h'  # user@host
+set -g @tmux_power_left_a  ' #{USER}'     # user
 set -g @tmux_power_left_b  ' #S'          # session name
 set -g @tmux_power_left_c  ''
 set -g @tmux_power_left_d  ''
@@ -157,7 +159,7 @@ Advanced users can still overwrite native tmux options after the plugin loads, b
 As an example, the following configurations can generate the theme shown in the first screenshot:
 
 ```tmux
-set -g @plugin 'wfxr/tmux-power'
+set -g @plugin 'pxtchphrxse/tmux-power'
 set -g @plugin 'wfxr/tmux-net-speed'
 set -g @tmux_power_theme 'everforest'
 set -g @tmux_power_right_arrow_icon ''
@@ -204,7 +206,7 @@ set -g @tmux_power_right_w '#(curl -s "wttr.in?format=1" | sed -e "s/+//" -e "s/
 set -g @tmux_power_status_interval 1  # status bar refresh interval in seconds
 ```
 
-*The default arrows/icons and examples that include icon glyphs use characters from [nerd-fonts](https://github.com/ryanoasis/nerd-fonts).*
+_The default arrows/icons and examples that include icon glyphs use characters from [nerd-fonts](https://github.com/ryanoasis/nerd-fonts)._
 
 ### 📦 Plugin support
 

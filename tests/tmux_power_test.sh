@@ -109,17 +109,16 @@ assert_not_contains() {
     fi
 }
 
-test_default_left_renders_user_host_and_session() {
+test_default_left_renders_user_and_session() {
     start_tmux
     load_plugin
 
-    local rendered expected_user expected_host
+    local rendered expected_user
     rendered="$(render_left)"
     expected_user="$(run_tmux display-message -p '#{user}')"
-    expected_host="$(run_tmux display-message -p '#h')"
 
-    assert_contains "$expected_user@$expected_host" "$rendered" \
-        "default left section should render the tmux user/host" || return 1
+    assert_contains "$expected_user" "$rendered" \
+        "default left section should render the tmux user" || return 1
     assert_contains "review" "$rendered" \
         "default left section should render the session name" || return 1
 
@@ -136,10 +135,13 @@ test_default_left_status_uses_tmux_user_format() {
 
     local rendered
     rendered="$(show_left)"
-    assert_contains '#{USER}@#h' "$rendered" \
-        "default status-left should keep tmux-native user/host format" || return 1
+    assert_contains '#{USER}' "$rendered" \
+        "default status-left should keep tmux-native user format" || return 1
 
-    if [[ "$rendered" == *"\$USER@#h"* ]]; then
+    assert_not_contains '#h' "$rendered" \
+        "default status-left should omit the hostname" || return 1
+
+    if [[ "$rendered" == *"\$USER"* ]]; then
         echo "actual:   $rendered" >&2
         echo "default status-left should not keep a literal \$USER token" >&2
         return 1
@@ -156,7 +158,7 @@ test_default_sections_preserve_icon_defaults() {
     rendered_left="$(render_left)"
     rendered_right="$(render_right)"
 
-    assert_contains ' #{USER}@#h' "$status_left" \
+    assert_contains ' #{USER}' "$status_left" \
         "default left_a should keep the upstream user icon" || return 1
     assert_contains ' #S' "$status_left" \
         "default left_b should keep the upstream session icon" || return 1
@@ -491,6 +493,8 @@ test_window_styles_can_be_configured() {
     window_activity="$(run_tmux show -gv window-status-activity-style)"
     window_bell="$(run_tmux show -gv window-status-bell-style)"
 
+    assert_contains '#[fg=#262626,bg=#ffb86c,none]' "$window_current" \
+        "current window should close with a left arrow" || return 1
     assert_contains ',underscore]' "$window_current" \
         "current window should use window_current_style" || return 1
     assert_contains ',none' "$window_last" \
@@ -559,7 +563,7 @@ main() {
     trap cleanup EXIT
 
     run_test test_default_left_status_uses_tmux_user_format
-    run_test test_default_left_renders_user_host_and_session
+    run_test test_default_left_renders_user_and_session
     run_test test_default_sections_preserve_icon_defaults
     run_test test_default_sections_do_not_double_pad_content
     run_test test_left_sections_skip_empty_segments

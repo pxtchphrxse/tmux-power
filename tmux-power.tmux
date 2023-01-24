@@ -13,7 +13,7 @@ set_defaults() {
     prefix_highlight_pos=''
 
     # Section contents (left: outer→inner, right: inner→outer)
-    left_a=' #{USER}@#h'
+    left_a=' #{USER}'
     left_b=' #S'
     left_c=''
     left_d=''
@@ -154,7 +154,7 @@ build_right_status() {
 
 configure_ui_styles() {
     tmux_set window-status-format         "#[fg=$G0,bg=$G2]$right_arrow_icon#[fg=$TC,bg=$G2] #I:#W#F #[fg=$G2,bg=$G0]$right_arrow_icon"
-    tmux_set window-status-current-format "#[fg=$G0,bg=$TC]$right_arrow_icon#[fg=$G0,bg=$TC,$window_current_style] #I:#W#F #[fg=$TC,bg=$G0,none]$right_arrow_icon"
+    tmux_set window-status-current-format "#[fg=$G0,bg=$TC]$right_arrow_icon#[fg=$G0,bg=$TC,$window_current_style] #I:#W#F #[fg=$G0,bg=$TC,none]$left_arrow_icon"
 
     tmux_set window-status-style          "fg=$TC,bg=$G0,none"
     tmux_set window-status-last-style     "fg=$TC,bg=$G0,$window_last_style"
