@@ -104,7 +104,7 @@ tmux_set status-left-bg "$G04"
 tmux_set status-left-fg "G12"
 tmux_set status-left-length 150
 user=$(whoami)
-LS="#[fg=$G04,bg=$TC,bold] $user_icon $user@#h #[fg=$TC,bg=$G06,nobold]$right_arrow_icon#[fg=$TC,bg=$G06] $session_icon #S "
+LS="#[fg=$G04,bg=$TC,bold] $user_icon $user #[fg=$TC,bg=$G06,nobold]$right_arrow_icon#[fg=$TC,bg=$G06] $session_icon #S "
 if "$show_upload_speed"; then
     LS="$LS#[fg=$G06,bg=$G05]$right_arrow_icon#[fg=$TC,bg=$G05] $upload_speed_icon #{upload_speed} #[fg=$G05,bg=$BG]$right_arrow_icon"
 else
@@ -133,7 +133,7 @@ tmux_set status-right "$RS"
 
 # Window status
 tmux_set window-status-format " #I:#W#F "
-tmux_set window-status-current-format "#[fg=$BG,bg=$G06]$right_arrow_icon#[fg=$TC,bold] #I:#W#F #[fg=$G06,bg=$BG,nobold]$right_arrow_icon"
+tmux_set window-status-current-format "#[fg=$BG,bg=$G06]$right_arrow_icon#[fg=$TC,bold] #I:#W#F #[fg=$BG,bg=$G06]$left_arrow_icon"
 
 # Window separator
 tmux_set window-status-separator ""

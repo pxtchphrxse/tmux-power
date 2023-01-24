@@ -1,5 +1,7 @@
 # Tmux Powerline Theme
 
+### \*\*forked from [wfxr/tmux-power](https://github.com/wfxr/tmux-power)
+
 [![TPM](https://img.shields.io/badge/tpm--support-true-blue)](https://github.com/tmux-plugins/tpm)
 [![Awesome](https://img.shields.io/badge/Awesome-tmux-d07cd0?logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABVklEQVRIS+3VvWpVURDF8d9CRAJapBAfwWCt+FEJthIUUcEm2NgIYiOxsrCwULCwktjYKSgYLfQF1JjCNvoMNhYRCwOO7HAiVw055yoBizvN3nBmrf8+M7PZsc2RbfY3AfRWeNMSVdUlHEzS1t6oqvt4n+TB78l/AKpqHrdwLcndXndU1WXcw50k10c1PwFV1fa3cQVzSR4PMd/IqaoLeIj2N1eTfG/f1gFVtQMLOI+zSV6NYz4COYFneIGLSdZSVbvwCMdxMsnbvzEfgRzCSyzjXAO8xlHcxMq/mI9oD+AGlhqgxjD93OVOD9TUuICdXd++/VeAVewecKKv2NPlfcHUAM1qK9FTnBmQvJjkdDfWzzE7QPOkAfZiEce2ECzhVJJPHWAfGuTwFpo365pO0NYjmEFr5Eas4SPeJfll2rqb38Z7/yaaD+0eNM3kPejt86REvSX6AamgdXkgoxLxAAAAAElFTkSuQmCC)](https://github.com/rothgar/awesome-tmux)
 [![License](https://img.shields.io/badge/License-MIT-brightgreen.svg)](https://wfxr.mit-license.org/2017)
@@ -16,12 +18,12 @@ Clone the repo somewhere and source it in `.tmux.conf`:
 run-shell "/path/to/tmux-power.tmux"
 ```
 
-*NOTE: Options should be set before sourcing.*
+_NOTE: Options should be set before sourcing._
 
 **Install using [TPM](https://github.com/tmux-plugins/tpm)**
 
 ```tmux
-set -g @plugin 'wfxr/tmux-power'
+set -g @plugin 'pxtchphrxse/tmux-power'
 ```
 
 ### 🎨 Themes
@@ -54,7 +56,7 @@ set -g @plugin 'wfxr/tmux-power'
 Set this theme if you want to honor the terminal colorscheme. To be used with
 something like [pywal](https://github.com/dylanaraps/pywal) for instance.
 
-### ⚙  Customizing
+### ⚙ Customizing
 
 You can define your favourite main color if you don't like any of above.
 
@@ -81,7 +83,8 @@ set -g @tmux_power_download_speed_icon '↓'
 set -g @tmux_power_left_arrow_icon '<'
 set -g @tmux_power_right_arrow_icon '>'
 ```
-*The default icons use glyphs from [nerd-fonts](https://github.com/ryanoasis/nerd-fonts).*
+
+_The default icons use glyphs from [nerd-fonts](https://github.com/ryanoasis/nerd-fonts)._
 
 ### 📦 Plugin support
 
