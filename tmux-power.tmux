@@ -153,7 +153,7 @@ build_right_status() {
 # Window, pane, and message styles
 
 configure_ui_styles() {
-    tmux_set window-status-format         "#[fg=$G0,bg=$G2]$right_arrow_icon#[fg=$TC,bg=$G2] #I:#W#F #[fg=$G0,bg=$G2]$left_arrow_icon"
+    tmux_set window-status-format         "#[fg=$G0,bg=$G0]$right_arrow_icon#[fg=$TC,bg=$G0] #I:#W#F #[fg=$G0,bg=$G0]$left_arrow_icon"
     tmux_set window-status-current-format "#[fg=$G0,bg=$TC]$right_arrow_icon#[fg=$G0,bg=$TC,$window_current_style] #I:#W#F #[fg=$G0,bg=$TC,none]$left_arrow_icon"
 
     tmux_set window-status-style          "fg=$TC,bg=$G0,none"
